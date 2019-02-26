@@ -1,4 +1,9 @@
-from Globals import DevelopmentMode
+try:
+    from Globals import DevelopmentMode
+except ImportError:
+    from App.config import getConfiguration
+    DevelopmentMode = getConfiguration().debug_mode
+
 import logging
 import os
 
